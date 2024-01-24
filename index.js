@@ -8,7 +8,7 @@ const app = express();
 app.use(express.json());
 
 app.use(cors({
-  origin: [process.env.CLIENT_ORIGIN as string],
+  origin: [process.env.CLIENT_ORIGIN],
   methods: ["POST", "GET"],
   credentials: true
 }));
@@ -17,7 +17,7 @@ axios.defaults.withCredentials = true;
 
 app.post('/api/post', async (req, res) => {
   try {
-    const response = await axios.post(process.env.CLEAN_URI_API as string, {
+    const response = await axios.post(process.env.CLEAN_URI_API, {
       url: req.body.url,
     });
 
@@ -27,7 +27,7 @@ app.post('/api/post', async (req, res) => {
   }
 });
 
-const PORT: number = parseInt(process.env.PORT as string, 10) || 3000;
+const PORT = parseInt(process.env.PORT, 10) || 3000;
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

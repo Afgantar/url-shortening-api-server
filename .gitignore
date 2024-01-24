@@ -1,11 +1,8 @@
-# node_modules
-node_modules/
-
-# Compiled TypeScript code
-dist/
-
-# Environment variables
+# Environment file
 .env
+
+# node_modules
+/node_modules
 
 # Log files
 *.log
